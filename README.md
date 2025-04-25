@@ -18,7 +18,6 @@ This repository contains a complete machine learning pipeline for predicting wee
 | `mae_vs_estimators.png` | Plot: MAE vs. number of estimators |
 | `merged_preprocessed.csv` | Fully cleaned and transformed dataset |
 | `merged_unprocessed.csv` | Original merged dataset before preprocessing |
-| `input.csv` | Example input for inference (preprocessed format) |
 
 ---
 
@@ -38,12 +37,13 @@ This repository contains a complete machine learning pipeline for predicting wee
 
 ## 🧪 Data Source
 
-The dataset was created by merging the following files from [Kaggle](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) by Sujay Kapadnis:
+The dataset was created by merging and preprocessing the following files from [Kaggle](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) by Sujay Kapadnis:
 
 - `games.csv`
 - `standings.csv`
 - `attendance.csv`
 
+The merging and preprocessing is also described in the `prediction.ipynb` Jupyter notebook.
 ---
 
 ## ⚙️ Preprocessing Steps
@@ -70,8 +70,8 @@ To run predictions:
 
 If you use this model or data in your work, please cite it as:
 
-> [Your Full Name], *NFL Stadium Attendance Prediction using Random Forest*, TU Wien, 2025.  
-> DOI: [Add your TUWRD/Zenodo DOI here]
+> Emil Paskovski, *NFL Stadium Attendance Prediction using Random Forest*, TU Wien, 2025.  
+> DOI: TO BE ADDED
 
 
 ---
