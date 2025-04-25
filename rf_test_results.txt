@@ -1,0 +1,65 @@
+
+==========================================================
+     Random Forest Regressor — Test Set Evaluation
+==========================================================
+
+📊 Scaled Test Set Metrics:
+   • Mean Absolute Error (MAE): 0.2179
+   • Mean Squared Error (MSE):  0.1896
+
+📈 Unscaled Test Set Metrics (Original Scale):
+   • Mean Absolute Error (MAE): 1,914.23
+   • Mean Squared Error (MSE):  14,626,303.59
+   • R² Score:                  0.8217
+
+----------------------------------------------------------
+🧠 Model Overview:
+----------------------------------------------------------
+• Model Type: Random Forest Regressor
+• Implementation: sklearn.ensemble.RandomForestRegressor
+• Python Version: 3.13.1
+• Libraries Used: scikit-learn, pandas, numpy, matplotlib
+
+• Hyperparameter Tuning:
+  - Method: GridSearchCV with 3-fold cross-validation
+  - Scoring: Negative Mean Absolute Error (neg_mean_absolute_error)
+
+• Best Hyperparameters:
+  - n_estimators:      250
+  - max_depth:         None
+  - min_samples_split: 2
+  - min_samples_leaf:  3
+  - max_features:      None
+
+----------------------------------------------------------
+📦 Dataset & Preprocessing:
+----------------------------------------------------------
+• Source Dataset: NFL Stadium Attendance Dataset  
+  ↳ https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset  
+  ↳ Creator: Sujay Kapadnis
+
+• Merged Files:
+  - games.csv
+  - standings.csv
+  - attendance.csv
+
+• Target Variable: Weekly NFL stadium attendance
+
+• Feature Engineering:
+  - Categorical features → one-hot encoded
+  - Numerical features   → scaled using StandardScaler
+  - Target variable      → scaled using StandardScaler (for training)
+
+• Data Split:
+  - Training:   70%
+  - Validation: 15% (used in GridSearchCV for CV folds)
+  - Test:       15% (used for final performance evaluation)
+
+----------------------------------------------------------
+📁 File Info:
+----------------------------------------------------------
+• This file: rf_test_results.txt
+• Model file: best_model.pkl
+• Scalers:    scaler.pkl, target_scaler.pkl
+• Notebook:   prediction.ipynb (full pipeline)
+

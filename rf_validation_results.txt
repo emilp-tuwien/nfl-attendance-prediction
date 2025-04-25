@@ -1,0 +1,60 @@
+
+==========================================================
+     Random Forest Regressor — Validation Set Results
+==========================================================
+
+📈 Validation Set Metrics (Original Scale):
+   • Mean Absolute Error (MAE): 2,033.53
+   • Mean Squared Error (MSE):  15,420,537.93
+   • R² Score:                  0.8244
+
+----------------------------------------------------------
+🧠 Model Overview:
+----------------------------------------------------------
+• Model Type: Random Forest Regressor
+• Source: sklearn.ensemble.RandomForestRegressor
+• Python Version: 3.13.1
+• Libraries Used: scikit-learn, pandas, numpy
+
+• Hyperparameter Tuning:
+  - Method: GridSearchCV with 3-fold cross-validation
+  - Scoring: Negative Mean Absolute Error (neg_mean_absolute_error)
+
+• Best Hyperparameters:
+  - n_estimators:      250
+  - max_depth:         None
+  - min_samples_split: 2
+  - min_samples_leaf:  3
+  - max_features:      None
+
+----------------------------------------------------------
+📦 Dataset & Preprocessing:
+----------------------------------------------------------
+• Dataset: Merged NFL Stadium Attendance Dataset from Kaggle  
+  ↳ https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset
+
+• Merged Files:
+  - games.csv
+  - standings.csv
+  - attendance.csv
+
+• Target Variable: Weekly stadium attendance
+
+• Preprocessing:
+  - Categorical features → one-hot encoded
+  - Numerical features   → scaled using StandardScaler
+  - Target variable      → scaled using StandardScaler
+
+• Data Split:
+  - Training:   70%
+  - Validation: 15% (used for evaluating model generalization)
+  - Test:       15% (not used in this evaluation)
+
+----------------------------------------------------------
+📁 File Info:
+----------------------------------------------------------
+• This file: rf_validation_results.txt
+• Model file: best_model.pkl
+• Scalers:    scaler.pkl, target_scaler.pkl
+• Notebook:   prediction.ipynb
+
