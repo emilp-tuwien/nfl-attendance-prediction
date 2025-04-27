@@ -4,29 +4,29 @@ This repository contains a complete machine learning pipeline for predicting wee
 
 ---
 
-## 📁 Project Structure
-
+<details> <summary>📁 <strong>Project Structure</strong> <span style="font-weight:normal">(click to expand)</span></summary>
 .
 ├── data
-│   ├── attendance.csv              # raw game–level attendance figures (2000-2019) ###  FOR BACKUP 
-│   ├── games.csv                   # raw game metadata: teams, scores, date, venue, ID ###  FOR BACKUP 
-│   ├── standings.csv               # raw season-level team performance stats ###  FOR BACKUP 
-│   ├── merged_preprocessed.csv     # cleaned merge; NO encoding/scaling yet
-│   └── merged_unprocessed.csv      # raw merge before any cleaning
+│   ├── attendance.csv              # raw game-level attendance (2000-2019)  (backup)
+│   ├── games.csv                   # raw game metadata: teams, scores, dates  (backup)
+│   ├── standings.csv               # raw season-level team stats              (backup)
+│   ├── merged_unprocessed.csv      # raw merge before any cleaning
+│   └── merged_preprocessed.csv     # cleaned merge – no encoding/scaling yet
 │
 ├── model_scalers
-│   ├── hyp_tuning_best_model.pkl   # trained RandomForestRegressor (best GridSearchCV params)
+│   ├── hyp_tuning_best_model.pkl   # RandomForestRegressor (best GridSearchCV params)
 │   ├── scaler.pkl                  # StandardScaler fitted to feature matrix X
 │   └── target_scaler.pkl           # StandardScaler fitted to target y (attendance)
 │
 ├── outputs
-│   ├── mae_vs_estimators.png       # elbow-style plot: MAE vs n_estimators
-│   ├── rf_test_results.txt         # metrics on held-out test set (MAE/MSE/R², scaled & original)
-│   └── rf_validation_results.txt   # metrics on validation set used for hyper-parameter tuning
+│   ├── mae_vs_estimators.png       # elbow plot: MAE vs n_estimators
+│   ├── rf_test_results.txt         # held-out test metrics (MAE/MSE/R², scaled & original)
+│   └── rf_validation_results.txt   # CV metrics used for hyper-parameter tuning
 │
-├── prediction.ipynb                # Jupyter notebook with full pipeline & reproducibility notes
-├── README.md                       # project overview, usage guide, citations, licenses
-└── requirements.txt                # pip-installable dependency list
+├── prediction.ipynb                # full pipeline & reproducibility notebook
+├── requirements.txt                # pip-installable dependency list
+└── README.md                       # project overview, usage guide, citations
+</details>
 
 
 
