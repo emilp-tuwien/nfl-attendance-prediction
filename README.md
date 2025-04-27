@@ -24,7 +24,25 @@ This repository contains a complete machine learning pipeline for predicting wee
 * `LICENSE` - CC-BY-4.0
 * `README.md`
 
+---
 
+## 📊 Data
+
+**Raw inputs** (in `data/`):
+- `attendance.csv` – per-game spectator counts, 2000–2019
+- `games.csv` – game metadata (teams, scores, date)
+- `standings.csv` – season-level team stats
+
+**Processed artifacts**:
+- `merged_unprocessed.csv` – joined on game identifier
+- `merged_preprocessed.csv` – cleaned & ready for modeling
+- *Splits:* train/val/test (70/15/15)
+
+---
+
+### Data Dictionary
+
+See [DATA_DICTIONARY.md](DATA_DICTIONARY.md) for full schema.
 
 ---
 
