@@ -1,1 +1,7 @@
+pandas
+kagglehub
+scikit-learn
+matplotlib
+vre-repository-connector
+joblib
 dbrepo==1.7.3
