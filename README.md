@@ -3,30 +3,26 @@
 This repository contains a complete machine learning pipeline for predicting weekly NFL stadium attendance using a `RandomForestRegressor`. The model was trained and evaluated on a custom-preprocessed dataset constructed from publicly available Kaggle data.
 
 ---
+## 📁 Project structure
 
-<details> <summary>📁 <strong>Project Structure</strong> <span style="font-weight:normal">(click to expand)</span></summary>
-.
-├── data
-│   ├── attendance.csv              # raw game-level attendance (2000-2019)  (backup)
-│   ├── games.csv                   # raw game metadata: teams, scores, dates  (backup)
-│   ├── standings.csv               # raw season-level team stats              (backup)
-│   ├── merged_unprocessed.csv      # raw merge before any cleaning
-│   └── merged_preprocessed.csv     # cleaned merge – no encoding/scaling yet
-│
-├── model_scalers
-│   ├── hyp_tuning_best_model.pkl   # RandomForestRegressor (best GridSearchCV params)
-│   ├── scaler.pkl                  # StandardScaler fitted to feature matrix X
-│   └── target_scaler.pkl           # StandardScaler fitted to target y (attendance)
-│
-├── outputs
-│   ├── mae_vs_estimators.png       # elbow plot: MAE vs n_estimators
-│   ├── rf_test_results.txt         # held-out test metrics (MAE/MSE/R², scaled & original)
-│   └── rf_validation_results.txt   # CV metrics used for hyper-parameter tuning
-│
-├── prediction.ipynb                # full pipeline & reproducibility notebook
-├── requirements.txt                # pip-installable dependency list
-└── README.md                       # project overview, usage guide, citations
-</details>
+* **data/**
+  * `attendance.csv` – raw attendance (2000-2019)
+  * `games.csv` – raw game metadata
+  * `standings.csv` – raw season stats
+  * `merged_unprocessed.csv` – first raw merge
+  * `merged_preprocessed.csv` – cleaned merge
+* **model_scalers/**
+  * `hyp_tuning_best_model.pkl` – best RF model
+  * `scaler.pkl` – StandardScaler (X)
+  * `target_scaler.pkl` – StandardScaler (y)
+* **outputs/**
+  * `mae_vs_estimators.png` – MAE curve
+  * `rf_test_results.txt` – test-set metrics
+  * `rf_validation_results.txt` – CV metrics
+* `prediction.ipynb` – full pipeline notebook  
+* `requirements.txt` – Python deps
+* `LICENSE` - CC-BY-4.0
+* `README.md`
 
 
 
