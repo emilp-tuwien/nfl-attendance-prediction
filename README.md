@@ -79,7 +79,7 @@ If you use this model or data in your work, please cite it as:
 ## 🛡 License
 
 - **Model, Code, and Scalers**: CC BY 4.0
-- **Original Dataset (Kaggle by Sujay Kapadnis)**: Licensed for academic use — check [dataset page](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) for full terms.
+- **Original Dataset (Kaggle by Sujay Kapadnis)**: No explicit license or usage terms were provided by the dataset uploader. The dataset is assumed to be shared for educational and research purposes as per standard Kaggle community practice. Users are advised to consult the dataset page before reuse or redistribution.
 
 
 ```python
