@@ -6,64 +6,63 @@ This repository contains a complete machine learning pipeline for predicting wee
 
 ## 📁 Project Structure
 
-| File | Description |
-|------|-------------|
-| `hyp_tuning_best_model.pkl` | Trained Random Forest model (best params from GridSearchCV) |
-| `scaler.pkl` | `StandardScaler` for input features (X) |
-| `target_scaler.pkl` | `StandardScaler` for target variable (y) |
-| `prediction.ipynb` | Jupyter notebook containing full ML pipeline |
-| `requirements.txt` | Python packages required to run the notebook |
-| `rf_test_results.txt` | Evaluation metrics on the held-out test set |
-| `rf_validation_results.txt` | Evaluation metrics on the validation set |
-| `mae_vs_estimators.png` | Plot: MAE vs. number of estimators |
-| `merged_preprocessed.csv` | Fully cleaned and transformed dataset |
-| `merged_unprocessed.csv` | Original merged dataset before preprocessing |
+.
+├── data
+│   ├── attendance.csv              # raw game–level attendance figures (2000-2019) ###  FOR BACKUP 
+│   ├── games.csv                   # raw game metadata: teams, scores, date, venue, ID ###  FOR BACKUP 
+│   ├── standings.csv               # raw season-level team performance stats ###  FOR BACKUP 
+│   ├── merged_preprocessed.csv     # cleaned merge; NO encoding/scaling yet
+│   └── merged_unprocessed.csv      # raw merge before any cleaning
+│
+├── model_scalers
+│   ├── hyp_tuning_best_model.pkl   # trained RandomForestRegressor (best GridSearchCV params)
+│   ├── scaler.pkl                  # StandardScaler fitted to feature matrix X
+│   └── target_scaler.pkl           # StandardScaler fitted to target y (attendance)
+│
+├── outputs
+│   ├── mae_vs_estimators.png       # elbow-style plot: MAE vs n_estimators
+│   ├── rf_test_results.txt         # metrics on held-out test set (MAE/MSE/R², scaled & original)
+│   └── rf_validation_results.txt   # metrics on validation set used for hyper-parameter tuning
+│
+├── prediction.ipynb                # Jupyter notebook with full pipeline & reproducibility notes
+├── README.md                       # project overview, usage guide, citations, licenses
+└── requirements.txt                # pip-installable dependency list
+
+
 
 ---
 
 ## 🧠 Model Summary
 
-- **Algorithm**: Random Forest Regressor (`sklearn.ensemble`)
-- **Tuning Method**: `GridSearchCV` (3-fold CV)
-- **Best Parameters**:
-  - `n_estimators`: 250
-  - `max_depth`: None
-  - `min_samples_split`: 2
-  - `min_samples_leaf`: 3
-  - `max_features`: None
-- **Target**: Weekly NFL stadium attendance
+* **Algorithm** : `RandomForestRegressor` (scikit-learn 1.3)  
+* **Tuning** : `GridSearchCV` (3-fold CV, negative MAE)  
+* **Best Parameters**
+
+  | hyper-parameter | value |
+  |-----------------|-------|
+  | `n_estimators`  | 250   |
+  | `max_depth`     | None  |
+  | `min_samples_split` | 2 |
+  | `min_samples_leaf`  | 3 |
+  | `max_features`      | None |
+
+* **Target** : weekly stadium attendance (inverse-transformed with `target_scaler.pkl`)
 
 ---
 
-## 🧪 Data Source
+## 🧪 Data Source & Pre-processing
 
-The dataset was created by merging and preprocessing the following files from [Kaggle](https://www.kaggle.com/datasets/sujaykapadnis/nfl-stadium-attendance-dataset) by Sujay Kapadnis:
+Raw Kaggle CSVs (`games.csv`, `standings.csv`, `attendance.csv`, seasons 2000-2019) live under `data/`.  
+They are merged on season + game identifiers into **`merged_unprocessed.csv`**.
 
-- `games.csv`
-- `standings.csv`
-- `attendance.csv`
+Cleaning & engineering in `prediction.ipynb`:
 
-The merging and preprocessing is also described in the `prediction.ipynb` Jupyter notebook.
----
+* shift team standings by one season to prevent leakage  
+* standardise date formats & team codes  
+* split **after** cleaning into 70 / 15 / 15 train-validation-test  
+* one-hot encode categoricals and `StandardScaler`-scale numerics **in-memory** only
 
-## ⚙️ Preprocessing Steps
-
-- One-hot encoding of categorical features
-- Scaling of numerical features using `StandardScaler`
-- Scaling of target variable for model training
-- 70/15/15 split into training, validation, and test sets
-
----
-
-## 🧾 Usage
-
-To run predictions:
-
-1. Load `hyp_tuning_best_model.pkl`
-2. Scale your input using `scaler.pkl`
-3. Predict with the model
-4. Inverse-transform predictions using `target_scaler.pkl`
-
+The encoded table is written to **`merged_preprocessed.csv`** for reference; on-disk splits remain raw.
 ---
 
 ## 📚 Citation
@@ -81,6 +80,17 @@ If you use this model or data in your work, please cite it as:
 - **Model, Code, and Scalers**: CC BY 4.0
 - **Original Dataset (Kaggle by Sujay Kapadnis)**: No explicit license or usage terms were provided by the dataset uploader. The dataset is assumed to be shared for educational and research purposes as per standard Kaggle community practice. Users are advised to consult the dataset page before reuse or redistribution.
 
+## ⚙️ Quick Start
+
+```bash
+# 1 clone
+git clone https://github.com/yourusername/NFL-Attendance-Prediction.git
+cd NFL-Attendance-Prediction
+
+# 2 install deps
+python3.13 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 
 ```python
 import pickle
