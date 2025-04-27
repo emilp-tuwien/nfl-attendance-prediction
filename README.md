@@ -23,6 +23,8 @@ This repository contains a complete machine learning pipeline for predicting wee
 * `requirements.txt` – Python deps
 * `LICENSE` - CC-BY-4.0
 * `README.md`
+* `codemeta.json` - lists authors’ ORCIDs, software dependencies, and the PIDs of all input/output arte-facts.
+* `DATA_DICTIONARY` - explanation about processed data
 
 ---
 
