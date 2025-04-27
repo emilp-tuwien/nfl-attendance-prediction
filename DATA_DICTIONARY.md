@@ -67,7 +67,7 @@
 
 ---
 
-### `merged_df` (cleaned merge, before encoding & scaling)
+### `merged_preprocessed.csv` (cleaned merge, before encoding & scaling)
 
 | Column Name                   | Description                                                               |
 |-------------------------------|---------------------------------------------------------------------------|
