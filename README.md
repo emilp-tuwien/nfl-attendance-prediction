@@ -86,7 +86,7 @@ The encoded table is written to **`merged_preprocessed.csv`** for reference; on-
 If you use this model or data in your work, please cite it as:
 
 > Emil Paskovski, *NFL Stadium Attendance Prediction using Random Forest*, TU Wien, 2025.  
-> DOI: TO BE ADDED
+> DOI: 10.5281/zenodo.15292825
 
 
 ---
